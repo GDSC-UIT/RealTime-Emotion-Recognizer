@@ -10,7 +10,7 @@
 conda create -n emotion-detect python=3.8 -y
 conda activate emotion-detect
 ```
-##### 2. Install prerequisites
+##### 3. Install prerequisites
 ```bash
 chmod +x dependencies.sh && ./dependencies.sh
 ```
