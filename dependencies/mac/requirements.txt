@@ -1,0 +1,7 @@
+numpy
+opencv-python
+keras
+pillow
+autopep8
+mtcnn
+sklearn
