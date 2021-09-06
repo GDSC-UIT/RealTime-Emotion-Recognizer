@@ -5,5 +5,4 @@ keras
 pillow
 autopep8
 mtcnn
-keras
 sklearn

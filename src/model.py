@@ -6,6 +6,7 @@ from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLRO
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 #Create model
+model = Sequential()
 
 
 model.summary()
