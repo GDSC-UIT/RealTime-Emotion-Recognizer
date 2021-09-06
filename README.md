@@ -5,7 +5,7 @@
 
 #### I. Install dependencies
 ##### 1. Download and install Anaconda:
-- [Download package](https://www.anaconda.com/products/individual) 
+- Download [package](https://www.anaconda.com/products/individual) 
 - Installation:
     - For [macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
     - For [Windows](https://docs.anaconda.com/anaconda/install/windows/)
