@@ -49,6 +49,6 @@ conda activate emotion-detect
         ```
 #### 4. Run main program
 ```bash
-python src/face-bounding-box.py  #For Windows
-python3 src/face-bounding-box.py #For macOS and Linux
+python src/main.py  #For Windows
+python3 src/main.py #For macOS and Linux
 ```
