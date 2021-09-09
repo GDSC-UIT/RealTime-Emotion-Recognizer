@@ -20,7 +20,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        pip3 install -r requirements.txt
+        pip3 install -r dependencies/linux/requirements.txt
     - name: Lint with flake8
       run: |
         conda install flake8
