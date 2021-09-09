@@ -1,4 +1,4 @@
-name: Python Package using Conda
+name: Unit test for macOS
 
 on: [push]
 
@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip3 install -r dependencies/mac/requirements.txt
-        conda install tensorflow-macos
+        pip3 install tensorflow-macos
     - name: Test syntax errors or undefined sequences
       run: |
         conda install flake8
