@@ -4,10 +4,16 @@
 </div>
 
 #### Table of contents
-1. [Install dependencies](#1-install-dependencies)   
-2. [Main program](#2-run-main-program)
+1. [Clone project](#1-clone-project)
+2. [Install dependencies](#2-install-dependencies)   
+3. [Main program](#3-run-main-program)
 
-#### 1. Install dependencies
+#### 1. Clone project
+```bash
+git clone https://github.com/GDSC2021/emotion-recognizer 
+```
+
+#### 2. Install dependencies
 ##### a. Download and install Anaconda:
 - Download latest version of [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installation/)
 - Download [Anaconda package](https://www.anaconda.com/products/individual) 
@@ -37,7 +43,8 @@ conda activate emotion-detect
         ```bash
         chmod +x dependencies/linux/linux.sh && ./dependencies/linux/linux.sh
         ```
-#### 2. Run main program
+#### 3. Run main program
 ```bash
-python3 src/face-bounding-box.py
+python src/face-bounding-box.py  #For Windows
+python3 src/face-bounding-box.py #For macOS and Linux
 ```
