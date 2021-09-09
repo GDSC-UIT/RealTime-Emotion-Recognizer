@@ -4,5 +4,6 @@ tensorflow
 keras
 pillow
 autopep8
+seaborn
 mtcnn
 sklearn
