@@ -17,22 +17,26 @@
     - For [Linux](https://docs.anaconda.com/anaconda/install/linux/)
 ##### b. Create environment
 ```bash
+conda init
 conda create -n emotion-detect python=3.8 -y
 conda activate emotion-detect
 ```
 ##### c. Install prerequisites
-- For Windows
-```bash
-chmod +x dependencies/win/win.sh && ./dependencies/win/win.sh
-```
-- For macOS
-```bash
-chmod +x dependencies/mac/dependencies.sh && ./dependencies/mac/dependencies.sh
-```
-- For Linux
-```bash
-chmod +x dependencies/linux/linux.sh && ./dependencies/linux/linux.sh
-```
+- Open Terminal (macOS and Linux) or Anaconda Prompt (Windows)
+- Go to your cloned directory
+- Run:
+    - For Windows
+        ```bash
+        sh dependencies/win/win.sh
+        ```
+    - For macOS
+        ```bash
+        chmod +x dependencies/mac/dependencies.sh && ./dependencies/mac/dependencies.sh
+        ```
+    - For Linux
+        ```bash
+        chmod +x dependencies/linux/linux.sh && ./dependencies/linux/linux.sh
+        ```
 #### 2. Run main program
 ```bash
 python3 src/face-bounding-box.py
