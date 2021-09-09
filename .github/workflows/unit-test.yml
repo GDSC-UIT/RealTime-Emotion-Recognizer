@@ -1,4 +1,4 @@
-name: Unit test for macOS
+name: Environment unit testing
 
 on: [push]
 
