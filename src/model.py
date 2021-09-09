@@ -10,4 +10,4 @@ from tensorflow.keras import Sequential
 model = Sequential()
 
 
-model.summary()
+# model.summary()
