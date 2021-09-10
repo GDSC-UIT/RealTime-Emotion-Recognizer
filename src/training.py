@@ -36,9 +36,6 @@ X_train, X_valid, y_train, y_valid = train_test_split(img_array, img_labels,
                                                     shuffle=True, stratify=img_labels,
                                                     test_size=0.1, random_state=42)
 
-#Normalizing data
-X_train = X_train/255
-Y_train = y_train/255
 
 
 ##Build model

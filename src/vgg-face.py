@@ -6,12 +6,20 @@ from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLRO
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import Sequential
 # from keras.losses import categorical_crossentropy
-from training import X_train, X_valid, INTERESTED_LABELS, Y_train, y_valid
+from training import X_train, X_valid, INTERESTED_LABELS, y_train, y_valid
 
 batch_size = 32
 epochs = 500
 num_classes = len(INTERESTED_LABELS)
-img_width, img_height, img_depth = 48, 48, 1
+img_width = X_train.shape[1]
+img_height = X_train.shape[2]
+img_depth = X_train.shape[3]
+num_classes = y_train.shape[1]
+
+#Normalizing data
+X_train = X_train/255
+Y_train = y_train/255
+
 
 #Initialize model
 model = Sequential(name='DCNN')
