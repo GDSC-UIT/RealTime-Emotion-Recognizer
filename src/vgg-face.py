@@ -61,6 +61,17 @@ model.compile(
     metrics=['accuracy']
 )
 
+#Create more data
+train_datagen = ImageDataGenerator(
+    rotation_range=15,
+    width_shift_range=0.15,
+    height_shift_range=0.15,
+    shear_range=0.15,
+    zoom_range=0.15,
+    horizontal_flip=True,
+)
+train_datagen.fit(X_train)
+
 #Callbacks
 early_stopping = EarlyStopping(
     monitor='val_accuracy',
