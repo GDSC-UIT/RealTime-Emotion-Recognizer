@@ -38,7 +38,7 @@ X_train, X_valid, y_train, y_valid = train_test_split(img_array, img_labels,
 
 #Normalizing data
 X_train = X_train/255
-Y_train = X_train/255
+Y_train = y_train/255
 
 
 ##Build model
