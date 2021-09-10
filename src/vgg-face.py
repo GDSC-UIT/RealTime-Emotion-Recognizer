@@ -7,44 +7,80 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import Sequential
 # from keras.losses import categorical_crossentropy
 from training import X_train, X_valid, INTERESTED_LABELS, Y_train, y_valid
-# print(X_train.shape[1:])
+
 batch_size = 32
 epochs = 500
+num_classes = len(INTERESTED_LABELS)
+img_width, img_height, img_depth = 48, 48, 1
 
+#Initialize model
+model = Sequential(name='DCNN')
 
-model = Sequential()
-model.add(Conv2D(filters=32, kernel_size=(3,3), padding='same', input_shape=X_train.shape[1:], activation='relu'))
-model.add(MaxPool2D(pool_size=(2, 2)))
-model.add(Conv2D(filters=64, kernel_size=(3,3), activation='relu'))
-model.add(MaxPool2D(pool_size=(2, 2)))
-model.add(Conv2D(filters=128, kernel_size=(3,3),activation='relu'))
-model.add(MaxPool2D(pool_size=(2, 2)))
-model.add(Flatten())
-model.add(Dense(512, activation='relu'))
+#First model
+model.add(Conv2D(filters=64,kernel_size=(5,5),input_shape=(img_width, img_height, img_depth),activation='relu',padding='same',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(Conv2D(filters=64,kernel_size=(5,5),activation='relu',padding='same',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(MaxPool2D(pool_size=(2,2)))
 model.add(Dropout(0.5))
-model.add(Dense(6, activation='softmax'))
 
-model.compile(loss='categorical_crossentropy', 
-            optimizer=Adam(learning_rate=1e-3), 
-            metrics=['accuracy'])
+#Second layer
+model.add(Conv2D(filters=128,kernel_size=(3,3),activation='relu',padding='same',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(Conv2D(filters=128,kernel_size=(3,3),activation='relu',padding='same',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(MaxPool2D(pool_size=(2,2)))
+model.add(Dropout(0.5))
 
+#Extra layer
+model.add(Conv2D(filters=256,kernel_size=(3,3),activation='relu',padding='same',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(Conv2D(filters=256,kernel_size=(3,3),activation='relu',padding='same',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(MaxPool2D(pool_size=(2,2)))
+model.add(Dropout(0.5))
+
+#Third layer
+model.add(Flatten())
+model.add(Dense(128,activation='relu',kernel_initializer='he_normal'))
+model.add(BatchNormalization())
+model.add(Dropout(0.6))
+model.add(Dense(num_classes,activation='softmax'))
+
+model.compile(
+    loss='categorical_crossentropy',
+    optimizer=Adam(lr=1e-3),
+    metrics=['accuracy']
+)
 
 #Callbacks
-patience = 3
-stop_patience = 5
-factor = 0.1
+early_stopping = EarlyStopping(
+    monitor='val_accuracy',
+    min_delta=0.00005,
+    patience=11,
+    verbose=1,
+    restore_best_weights=True,
+)
+
+lr_scheduler = ReduceLROnPlateau(
+    monitor='val_accuracy',
+    factor=0.5,
+    patience=7,
+    min_lr=1e-7,
+    verbose=1,
+)
+
 callbacks = [
-    ModelCheckpoint("model/xception.h5", save_best_only=True, verbose = 0),
-    EarlyStopping(patience=stop_patience, monitor='val_loss', verbose=1),
-    ReduceLROnPlateau(monitor='val_loss', factor=factor, patience=patience, min_lr=1e-6, verbose=1)
+    early_stopping,
+    lr_scheduler,
 ]
 
+model.summary()
 #Train model
 model.fit(X_train, Y_train,
           batch_size=batch_size,
           epochs=epochs,
           verbose=1,
           validation_data=(X_valid, y_valid),
-          shuffle=True)
-
-model.summary()
+          shuffle=True,
+          use_multiprocessing=True)

@@ -6,8 +6,10 @@
 #### Table of contents
 1. [Clone project](#1-clone-project)
 2. [Dataset](#2-dataset)
-3. [Install dependencies](#2-install-dependencies)   
-4. [Main program](#3-run-main-program)
+3. [Install dependencies](#3-install-dependencies)   
+4. [Methods](#4-methods)
+5. [Main program](#5-run-main-program)
+
 
 #### 1. Clone project
 ```bash
@@ -47,7 +49,13 @@ conda activate emotion-detect
         ```bash
         chmod +x dependencies/linux/linux.sh && ./dependencies/linux/linux.sh
         ```
-#### 4. Run main program
+
+#### 4. Methods
+| Architecture name | Structures | Accuracy |
+| :--: | :--: | :--: |
+| VGGFace upgraded | The same as VGGFace structure but with 2 extra Convolutional layers and 1 Pooling before Flatten  | |
+
+#### 5. Run main program
 ```bash
 python src/main.py  #For Windows
 python3 src/main.py #For macOS and Linux
