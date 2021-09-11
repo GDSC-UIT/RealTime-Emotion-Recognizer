@@ -1,26 +1,15 @@
 import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
-from sklearn.model_selection import train_test_split
 from tensorflow.keras.layers import Conv2D,Flatten,MaxPool2D,BatchNormalization,GlobalAveragePooling2D, Dense, Dropout
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import Sequential
+
 # from keras.losses import categorical_crossentropy
-from training import X_train, X_valid, INTERESTED_LABELS, y_train, y_valid
+from data_preprocess import X_train, X_valid, y_train, y_valid, num_classes, img_height, img_depth, img_width
 
 batch_size = 32
 epochs = 500
-num_classes = len(INTERESTED_LABELS)
-img_width = X_train.shape[1]
-img_height = X_train.shape[2]
-img_depth = X_train.shape[3]
-num_classes = y_train.shape[1]
-
-#Normalizing data
-X_train = X_train/255
-Y_train = y_train/255
-
-
 #Initialize model
 model = Sequential(name='DCNN')
 
@@ -90,16 +79,20 @@ lr_scheduler = ReduceLROnPlateau(
 )
 
 callbacks = [
+    ModelCheckpoint('model/vgg-face.h5',save_best_only=True,verbose=0),
     early_stopping,
     lr_scheduler,
 ]
 
 model.summary()
+
 #Train model
-model.fit(X_train, Y_train,
+model.fit(X_train, y_train,
+          callbacks=callbacks,
           batch_size=batch_size,
           epochs=epochs,
           verbose=1,
           validation_data=(X_valid, y_valid),
           shuffle=True,
           use_multiprocessing=True)
+

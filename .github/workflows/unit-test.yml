@@ -23,6 +23,7 @@ jobs:
         pip3 install tensorflow
         # pip3 install --upgrade --force --no-dependencies https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_macos-0.1a3-cp38-cp38-macosx_11_0_x86_64.whl https://github.com/apple/tensorflow_macos/releases/download/v0.1alpha3/tensorflow_addons_macos-0.1a3-cp38-cp38-macosx_11_0_x86_64.whl 
         pip3 install -r dependencies/mac/requirements.txt
+        pip3 install git+https://github.com/yaledhlab/vggface.git
     - name: Test syntax errors or undefined sequences
       run: |
         brew install flake8
@@ -48,6 +49,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip3 install -r dependencies/linux/requirements.txt
+        pip3 install git+https://github.com/yaledhlab/vggface.git
     - name: Test syntax errors or undefined sequences
       run: |
         conda install flake8
@@ -73,7 +75,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install matplotlib pandas pillow autopep8 sklearn tensorflow keras mtcnn opencv-python seaborn
-        pip install git+https://github.com/rcmalli/keras-vggface.git
+        pip install git+https://github.com/yaledhlab/vggface.git
     - name: Test syntax errors or undefined sequences
       run: |
         pip install flake8
