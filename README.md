@@ -63,5 +63,5 @@ python3 src/main.py #For macOS and Linux
 
 #### 6. Weights
 
-Weights: [![Download](https://img.shields.io/badge/download-vgg-face.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
+Weights: [![Download](https://img.shields.io/badge/download-vggface.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
 
