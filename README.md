@@ -53,7 +53,7 @@ conda activate emotion-detect
 #### 4. Methods
 | Architecture name | Structures | Accuracy |
 | :--: | :--: | :--: |
-| VGGFace upgraded | The same as VGGFace structure but with 2 extra Convolutional layers and 1 Pooling before Flatten  | |
+| VGGFace | VGGFace structure with 2 extra Convolutional layers and 1 Pooling before Flatten  | |
 
 #### 5. Run main program
 ```bash
