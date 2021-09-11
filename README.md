@@ -9,7 +9,7 @@
 3. [Install dependencies](#3-install-dependencies)   
 4. [Methods](#4-methods)
 5. [Main program](#5-run-main-program)
-
+6. [Weights](#6-weights)
 
 #### 1. Clone project
 ```bash
