@@ -96,3 +96,4 @@ model.fit(X_train, y_train,
           shuffle=True,
           use_multiprocessing=True)
 
+model.save("model/vgg-face.h5")

@@ -1,11 +1,14 @@
 import cv2
 import numpy as np
 from mtcnn.mtcnn import MTCNN
+from tensorflow import keras
 
 detector = MTCNN()
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FPS, 30)
 black = np.zeros((96,96))
+
+trained_model = keras.models.load_model("model/vgg-face.h5")
 
 while True:
     # Find haar cascade to draw bounding box around face
