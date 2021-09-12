@@ -9,7 +9,7 @@
 3. [Install dependencies](#3-install-dependencies)   
 4. [Methods](#4-methods)
 5. [Main program](#5-run-main-program)
-6. [Weights](#6-weights)
+6. [Trained model](#6-trained-model)
 
 #### 1. Clone project
 ```bash
@@ -61,7 +61,7 @@ python src/main.py  #For Windows
 python3 src/main.py #For macOS and Linux
 ```
 
-#### 6. Weights
+#### 6. Trained model
 
-Weights: [![Download](https://img.shields.io/badge/download-vggface.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
+[![Download](https://img.shields.io/badge/download-vggface.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
 
