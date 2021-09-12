@@ -29,13 +29,13 @@ while True:
             x1, y1, width, height = results[0]['box']
             x2, y2 = x1 + width, y1 + height
 
-        	# extract face
+            ''' Extract face '''
             face = frame[y1:y2, x1:x2]
 
-            #Draw bounding box
+            ''' Draw bounding box '''
             cv2.rectangle(frame, (x1, y1), (x1+width, y1+height), (255, 0, 0), 2)
             
-            # resize pixels to the model size
+            ''' Resize pixels to the model size'''
             cropped_img = cv2.resize(face, (48, 48))
             cropped_img = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY) 
             cropped_img_expanded = np.expand_dims(cropped_img, axis=0)
