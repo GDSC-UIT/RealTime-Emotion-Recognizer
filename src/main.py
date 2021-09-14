@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 from data_preprocess import X_train
 detector = MTCNN()
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FPS, 30)
+cap.set(cv2.CAP_PROP_FPS)
 black = np.zeros((96,96))
 
 
@@ -20,7 +20,7 @@ while True:
 
     ''' Detect faces in the image'''
     results = detector.detect_faces(frame)
-    
+
     ''' Extract the bounding box from the first face '''
     if len(results) == 1:  # if face detected = 1, else = 0
         try:
