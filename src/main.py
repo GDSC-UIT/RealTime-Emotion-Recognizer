@@ -20,9 +20,9 @@ while True:
     if not ret:
         break
 
-	''' Detect faces in the image'''
+    ''' Detect faces in the image'''
     results = detector.detect_faces(frame)
-	
+    
     ''' Extract the bounding box from the first face '''
     if len(results) == 1:  # if face detected = 1, else = 0
         try:
