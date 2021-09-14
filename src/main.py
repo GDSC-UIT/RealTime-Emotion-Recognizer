@@ -15,15 +15,15 @@ trained_model = load_model('model/vgg-face.h5')
 emotion_dict = {0: 'happy', 1: 'sad', 2: 'neutral'}
 
 while True:
-    # Find haar cascade to draw bounding box around face
+    ''' Find haar cascade to draw bounding box around face'''
     ret, frame = cap.read()
     if not ret:
         break
 
-	# detect faces in the image
+	''' Detect faces in the image'''
     results = detector.detect_faces(frame)
 	
-    # extract the bounding box from the first face
+    ''' Extract the bounding box from the first face '''
     if len(results) == 1:  # if face detected = 1, else = 0
         try:
             x1, y1, width, height = results[0]['box']

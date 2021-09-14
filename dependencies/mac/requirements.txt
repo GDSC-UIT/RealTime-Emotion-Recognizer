@@ -5,4 +5,5 @@ pillow
 autopep8
 mtcnn
 seaborn
+scikit-plot
 sklearn
