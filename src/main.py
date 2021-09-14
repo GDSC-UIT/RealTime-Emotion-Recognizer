@@ -3,7 +3,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras.models import model_from_json
-from data_preprocess import X_train
+# from data_preprocess import X_train
 from tensorflow.keras.preprocessing import image
 
 #load model
@@ -52,7 +52,7 @@ while True:
         cv2.putText(test_img, predicted_emotion, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (219,68,55), 2)
 
     resized_img = cv2.resize(test_img, (1000, 700))
-    cv2.imshow(resized_img)
+    cv2.imshow('Predicted image', resized_img)
 
     if cv2.waitKey(10) == ord('q'):#wait until 'q' key is pressed
         break
