@@ -48,41 +48,30 @@ def build_model(model):
         optimizer=Adam(lr=1e-3),
         metrics=['accuracy']
     )
-
-    #Create more data
-    train_datagen = ImageDataGenerator(
-        rotation_range=15,
-        width_shift_range=0.15,
-        height_shift_range=0.15,
-        shear_range=0.15,
-        zoom_range=0.15,
-        horizontal_flip=True,
-    )
-    train_datagen.fit(X_train)
-
-    #Callbacks
-    early_stopping = EarlyStopping(
-        monitor='val_accuracy',
-        min_delta=0.00005,
-        patience=11,
-        verbose=1,
-        restore_best_weights=True,
-    )
-
-    lr_scheduler = ReduceLROnPlateau(
-        monitor='val_accuracy',
-        factor=0.5,
-        patience=7,
-        min_lr=1e-7,
-        verbose=1,
-    )
-
-    callbacks = [
-        ModelCheckpoint('model/vgg-face.h5',save_best_only=False,verbose=0),
-        early_stopping,
-        lr_scheduler,
-    ]
     return model
+
+#Callbacks
+early_stopping = EarlyStopping(
+    monitor='val_accuracy',
+    min_delta=0.00005,
+    patience=11,
+    verbose=1,
+    restore_best_weights=True,
+)
+
+lr_scheduler = ReduceLROnPlateau(
+    monitor='val_accuracy',
+    factor=0.5,
+    patience=7,
+    min_lr=1e-7,
+    verbose=1,
+)
+
+callbacks = [
+    ModelCheckpoint('model/vgg-face.h5',save_best_only=False,verbose=0),
+    early_stopping,
+    lr_scheduler,
+]
 
 #Initialize model
 model = Sequential(name='DCNN')
@@ -105,5 +94,3 @@ fer_json = model.to_json()
 with open("model/vgg-face-model.json", "w") as json_file:
     json_file.write(fer_json)
 model.save_weights("model/vgg-face.h5")
-
-# model.save("model/vgg-face.h5")
