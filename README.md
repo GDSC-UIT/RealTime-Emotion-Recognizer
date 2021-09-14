@@ -7,9 +7,8 @@
 1. [Clone project](#1-clone-project)
 2. [Dataset](#2-dataset)
 3. [Install dependencies](#3-install-dependencies)   
-4. [Methods](#4-methods)
-5. [Main program](#5-run-main-program)
-6. [Trained model](#6-trained-model)
+4. [Main program](#4-run-main-program)
+5. [Trained model](#5-trained-model)
 
 #### 1. Clone project
 ```bash
@@ -50,18 +49,16 @@ conda activate emotion-detect
         chmod +x dependencies/linux/linux.sh && ./dependencies/linux/linux.sh
         ```
 
-#### 4. Methods
-| Architecture name | Structures |
-| :--: | :--: |
-| VGGFace | VGGFace structure with 2 extra Convolutional layers and 1 Pooling before Flatten  | 
-
-#### 5. Run main program
+#### 4. Run main program
+- Create a folder named `model` on your local
+- Download 2 following files and put them into your `model` folder
+    - [![](https://img.shields.io/badge/vggface.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
+    - [![](https://img.shields.io/badge/vggfacemodel.json-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/file/d/1mXYUAnXZDz5jDLD4zVycgohW4SFbnN5e/view?usp=sharing) 
 ```bash
 python src/main.py  #For Windows
 python3 src/main.py #For macOS and Linux
 ```
 
-#### 6. Trained model
+#### 5. Trained model
 
-[![](https://img.shields.io/badge/download-vggface.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
 
