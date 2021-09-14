@@ -3,14 +3,19 @@ import numpy as np
 from mtcnn.mtcnn import MTCNN
 from tensorflow import keras
 from tensorflow.keras.models import load_model
+from tensorflow.keras.models import model_from_json
 from data_preprocess import X_train
+# from keras.preprocessing import image
+
+#load model
+trained_model = model_from_json(open("model/vgg-face-model.json", "r").read())
+#load weights
+trained_model.load_weights('model/vgg-face.h5')
+
 detector = MTCNN()
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FPS)
+cap.set(cv2.CAP_PROP_FPS, 30)
 black = np.zeros((96,96))
-
-
-trained_model = load_model('model/vgg-face.h5')
 
 emotion_dict = {0: 'happy', 1: 'sad', 2: 'neutral'}
 
@@ -46,8 +51,8 @@ while True:
             print(prediction)
             maxindex = int(np.argmax(prediction))
 
-            # cv2.putText(frame, 'HHHHH', (x1+20, y1-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (219, 68, 55), 2, cv2.LINE_AA)
-            cv2.putText(frame, emotion_dict[maxindex], (x1+20, y1-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+            cv2.putText(frame, 'HHHHH', (x1+20, y1-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (219, 68, 55), 2, cv2.LINE_AA)
+            # cv2.putText(frame, emotion_dict[maxindex], (x1+20, y1-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
         except:
             pass
         
