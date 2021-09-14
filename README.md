@@ -19,7 +19,7 @@ git clone https://github.com/GDSC2021/emotion-recognizer
 
 #### 3. Install dependencies
 ##### a. Download and install Anaconda:
-- Download latest version of [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installation/)
+- Download latest version of [Python](https://www.python.org/downloads/)
 - Download [Anaconda package](https://www.anaconda.com/products/individual) 
 - Installation:
     - For [macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
