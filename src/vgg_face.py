@@ -4,6 +4,7 @@ from tensorflow.keras.layers import Conv2D,Flatten,MaxPool2D,BatchNormalization,
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import Sequential
+import json, os, sys
 
 # from keras.losses import categorical_crossentropy
 from data_preprocess import X_train, X_valid, y_train, y_valid, num_classes, img_height, img_depth, img_width
@@ -90,13 +91,19 @@ model = build_model(model)
 model.summary()
 
 #Train model
-# model.fit(X_train, y_train,
-#           callbacks=callbacks,
-#           batch_size=batch_size,
-#           epochs=epochs,
-#           verbose=1,
-#           validation_data=(X_valid, y_valid),
-#           shuffle=True,
-#           use_multiprocessing=True)
+model.fit(X_train, y_train,
+          callbacks=callbacks,
+          batch_size=batch_size,
+          epochs=epochs,
+          verbose=1,
+          validation_data=(X_valid, y_valid),
+          shuffle=True,
+          use_multiprocessing=True)
+
+#Saving the  model to  use it later on
+fer_json = model.to_json()
+with open("model/vgg-face-model.json", "w") as json_file:
+    json_file.write(fer_json)
+model.save_weights("model/vgg-face.h5")
 
 # model.save("model/vgg-face.h5")
