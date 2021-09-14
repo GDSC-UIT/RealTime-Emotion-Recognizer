@@ -18,7 +18,6 @@ cap.set(cv2.CAP_PROP_FPS, 30)
 black = np.zeros((96,96))
 
 emotion_dict = {0: 'happy', 1: 'sad', 2: 'neutral'}
-
 while True:
     ''' Find haar cascade to draw bounding box around face'''
     ret, frame = cap.read()
@@ -55,7 +54,8 @@ while True:
             # cv2.putText(frame, emotion_dict[maxindex], (x1+20, y1-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
         except:
             pass
-        
+     
+
     cv2.imshow('Video',frame)
     try:
         cv2.imshow("frame", cropped_img)
