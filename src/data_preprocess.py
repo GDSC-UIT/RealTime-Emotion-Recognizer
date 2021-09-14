@@ -8,7 +8,7 @@ img_width = 224
 img_height = 224
 img_depth = 1
 
-# df = pd.read_csv('dataset/fer2013.csv')
+df = pd.read_csv('dataset/fer2013.csv')
 
 emotion_label = {0:'anger', 1:'disgust', 2:'fear', 3:'happiness', 4: 'sadness', 5: 'surprise', 6: 'neutral'}
 
