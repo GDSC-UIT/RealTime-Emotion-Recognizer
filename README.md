@@ -38,7 +38,6 @@ conda activate emotion-detect
     - For Windows
         ```bash
         pip install matplotlib pandas pillow autopep8 sklearn tensorflow keras mtcnn opencv-python seaborn
-        pip install git+https://github.com/yaledhlab/vggface.git
         ```
     - For macOS
         ```bash
