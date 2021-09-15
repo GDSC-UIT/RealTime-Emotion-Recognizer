@@ -6,5 +6,4 @@ pillow
 scikit-plot
 autopep8
 seaborn
-mtcnn
 sklearn
