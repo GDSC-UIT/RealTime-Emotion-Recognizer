@@ -58,3 +58,4 @@ conda activate emotion-detect
 python src/main.py  #For Windows
 python3 src/main.py #For macOS and Linux
 ```
+- To abort program, press the combination of `Ctrl + C`
