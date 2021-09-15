@@ -37,7 +37,7 @@ conda activate emotion-detect
 - Run:
     - For Windows
         ```bash
-        sh dependencies/win/win.sh
+        pip install matplotlib pandas pillow autopep8 sklearn tensorflow keras mtcnn opencv-python seaborn
         ```
     - For macOS
         ```bash
