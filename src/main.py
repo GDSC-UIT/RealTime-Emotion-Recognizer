@@ -3,7 +3,6 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras.models import model_from_json
-# from data_preprocess import X_train
 from tensorflow.keras.preprocessing import image
 
 #load model
@@ -12,10 +11,9 @@ trained_model = model_from_json(open("model/vgg-face-model.json", "r").read())
 trained_model.load_weights('model/vgg-face.h5')
 
 cap = cv2.VideoCapture(0)
-# cap.set(cv2.CAP_PROP_FPS, 30)
 black = np.zeros((96,96))
 
-emotions = ('happy', 'sad', 'neutral')
+emotions = ('happy', 'sorrow', 'neutral')
 
 face_haar_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 

@@ -6,7 +6,6 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import Sequential
 import json, os, sys
 
-# from keras.losses import categorical_crossentropy
 from data_preprocess import X_train, X_valid, y_train, y_valid, num_classes, img_height, img_depth, img_width
 
 batch_size = 32
