@@ -1,7 +1,5 @@
 import cv2
 import numpy as np
-from tensorflow import keras
-from tensorflow.keras.models import load_model
 from tensorflow.keras.models import model_from_json
 from tensorflow.keras.preprocessing import image
 
@@ -21,7 +19,7 @@ cap=cv2.VideoCapture(0)
 
 while True:
 
-    ret,test_img = cap.read()# captures frame and returns boolean value and captured image
+    ret,test_img = cap.read()
 
     if not ret:
         continue
