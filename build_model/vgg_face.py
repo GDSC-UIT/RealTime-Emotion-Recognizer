@@ -7,9 +7,8 @@ from tensorflow.keras import Sequential
 import json, os, sys
 
 from data_preprocess import X_train, X_valid, y_train, y_valid, num_classes, img_height, img_depth, img_width
+from vgg_face import batch_size, epochs
 
-batch_size = 32
-epochs = 500
 def build_model(model):
     ''' First model '''
     model.add(Conv2D(filters=64,kernel_size=(5,5),input_shape=(img_width, img_height, img_depth),activation='relu',padding='same',kernel_initializer='he_normal'))
@@ -89,6 +88,7 @@ model.fit(X_train, y_train,
 
 ''' Saving the  model to  use it later on'''
 fer_json = model.to_json()
+
 with open("model/vgg-face-model.json", "w") as json_file:
     json_file.write(fer_json)
 model.save_weights("model/vgg-face.h5")

@@ -3,20 +3,17 @@ from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras import utils
 import pandas as pd
 import numpy as np
-
-img_width = 224
-img_height = 224
-img_depth = 1
+from constants import img_depth, img_height, img_width
 
 df = pd.read_csv('dataset/fer2013.csv')
 
 emotion_label = {0:'anger', 1:'disgust', 2:'fear', 3:'happiness', 4: 'sadness', 5: 'surprise', 6: 'neutral'}
 
 INTERESTED_LABELS = [3, 4, 6]
+
 df = df[df.emotion.isin(INTERESTED_LABELS)]
 
-
-img_array = df.pixels.apply(lambda x: np.array(x.split(' ')).reshape(48, 48, 1).astype('float32'))
+img_array = df.pixels.apply(lambda x: np.array(x.split(' ')).reshape(img_width, img_height, img_depth).astype('float32'))
 img_array = np.stack(img_array, axis=0)
 
 le = LabelEncoder()
@@ -33,6 +30,6 @@ img_height = X_train.shape[2]
 img_depth = X_train.shape[3]
 num_classes = y_train.shape[1]
 
-#Normalize data
+''' Normalize data '''
 X_train = X_train / 255.
 X_valid = X_valid / 255.
