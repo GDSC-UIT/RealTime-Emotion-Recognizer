@@ -55,3 +55,9 @@ python src/main.py  #For Windows
 python3 src/main.py #For macOS and Linux
 ```
 - To abort program, press the combination of `Ctrl + C`
+#### 5. Demo
+<div align='center'>
+    
+<img width="626" alt="Screen Shot 2021-09-19 at 11 04 25" src="https://user-images.githubusercontent.com/67086934/133915043-37d1631c-244a-4687-986c-0798c990ec35.png">
+    
+</div>
