@@ -8,6 +8,7 @@
 2. [Dataset](#2-dataset)
 3. [Install dependencies](#3-install-dependencies)   
 4. [Main program](#4-run-main-program)
+5. [Demo](#5-demo)
 
 #### 1. Clone project
 ```bash
