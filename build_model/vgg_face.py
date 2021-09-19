@@ -34,7 +34,7 @@ def build_model(model):
     model.add(MaxPool2D(pool_size=(2,2)))
     model.add(Dropout(0.5))
 
-    ''' Third layer '''
+    ''' Fully connected layer '''
     model.add(Flatten())
     model.add(Dense(128,activation='relu',kernel_initializer='he_normal'))
     model.add(BatchNormalization())
