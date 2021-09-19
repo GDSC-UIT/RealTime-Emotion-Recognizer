@@ -49,9 +49,6 @@ conda activate emotion-detect
         ```
 
 #### 4. Run main program
-- Download 2 following files and put them into `model` folder
-    - [![](https://img.shields.io/badge/vggface.h5-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1VruHPA0WRbPMo8vVFe9TTt6d-Pg4vmWo?usp=sharing) 
-    - [![](https://img.shields.io/badge/vggfacemodel.json-blue.svg?longCache=true&style=flat&logo=google-drive)](https://drive.google.com/file/d/1mXYUAnXZDz5jDLD4zVycgohW4SFbnN5e/view?usp=sharing) 
 - Run program:
 ```bash
 python src/main.py  #For Windows
