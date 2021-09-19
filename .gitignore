@@ -1,5 +1,6 @@
 __pycache__
 .ipynb_checkpoints
 dataset
-model
 workflows
+vgg-face-model.json
+vgg-face.h5
